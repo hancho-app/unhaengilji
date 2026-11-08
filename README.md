@@ -6,7 +6,7 @@ Pleos Connect(Android Automotive OS, API 34)용 차량 앱이며 외부 서버 �
 
 ## APK 위치
 
-`apk/한초_운행일지_release.apk`
+`apk/윤성은_운행일지_release.apk`
 
 ## 시연 영상
 
@@ -24,7 +24,7 @@ Pleos Connect(Android Automotive OS, API 34)용 차량 앱이며 외부 서버 �
 에뮬레이터를 켠 뒤 저장소 루트에서 실행합니다.
 
 ```bash
-adb install -r -g apk/한초_운행일지_release.apk
+adb install -r -g apk/윤성은_운행일지_release.apk
 ```
 
 앱 목록에서 「운행일지」를 엽니다. 처음 열면 수집 동의 화면이 나오고, 「동의하고 시작」을 누르면 설정 화면으로 갑니다. 차종과 자동차등록번호를 적고 저장합니다. 연 관련비용과 사용자 등록은 선택입니다.
