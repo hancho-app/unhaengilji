@@ -1,0 +1,46 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+
+  <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+  <uses-permission android:name="pleos.car.permission.CAR_INFO" />
+  <uses-permission android:name="pleos.car.permission.CAR_SEATS" />
+  <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+  <application
+    android:allowBackup="false"
+    android:label="운행일지"
+    android:icon="@android:drawable/ic_menu_edit"
+    android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+    <uses-library android:name="android.car" android:required="false" />
+
+    <activity
+      android:name=".LogbookActivity"
+      android:exported="true"
+      android:screenOrientation="landscape">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name=".StopCardActivity" android:exported="false" android:launchMode="singleTop" />
+    <activity android:name=".SettingsActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+    <activity android:name=".QrActivity" android:exported="false" android:screenOrientation="landscape" />
+
+    <service
+      android:name=".RecorderService"
+      android:exported="false"
+      android:foregroundServiceType="specialUse">
+      <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="trip_logbook" />
+    </service>
+    <receiver android:name=".BootReceiver" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name=".ClassifyReceiver" android:exported="false" />
+  </application>
+</manifest>
